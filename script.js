@@ -15,6 +15,11 @@ window.onload = setup;
 //render one episode
 //loop through all episodes and render names of all 73
 
+//Bugs
+//<p></p> shows in summary
+  //--Create a div instead of p?
+//season and ep nums need padding and in same line
+
 
 let episodeList = document.createElement('ul');
 document.body.appendChild(episodeList);
@@ -76,6 +81,17 @@ getAllEpisodes().forEach((episode) => {
   let epNumber = document.createElement("h2");
   epDiv.appendChild(epNumber);
   epNumber.innerText = episode.number; //renders season in h2 tag
+
+  let imgMed = document.createElement("img");
+  epDiv.appendChild(imgMed);
+  imgMed.src = episode.image.medium; //renders medium img
+
+  let epSummary = document.createElement("p");
+  epDiv.appendChild(epSummary);
+  epSummary.innerText = episode.summary.replace(/<([^>]+>)/g, ""); //removes all tags in summary string, then renders as p
+
+ 
+
 
   // console.log(`I'm ep${episode.number}`); //renders 'hi' x7
 });
