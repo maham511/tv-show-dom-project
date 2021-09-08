@@ -72,26 +72,21 @@ getAllEpisodes().forEach((episode) => {
   epDiv.appendChild(epName);
   epName.innerText = episode.name; //renders ep name in h2 tag
 
-  //Season
-  let season = document.createElement("h2");
-  epDiv.appendChild(season);
-  season.innerText = episode.season; //renders season in h2 tag
+  //Season & Episode Number
+  let seasonEpisode = document.createElement("h2");
+  epDiv.appendChild(seasonEpisode);
+  seasonEpisode.innerText = `S${episode.season
+    .toString()
+    .padStart(2, "0")} E${episode.number.toString().padStart(2, "0")}`; //season no. changed to string to add padding, then rendered as h2 elem
 
-  //Episode number
-  let epNumber = document.createElement("h2");
-  epDiv.appendChild(epNumber);
-  epNumber.innerText = episode.number; //renders season in h2 tag
-
+  //Medium Image
   let imgMed = document.createElement("img");
   epDiv.appendChild(imgMed);
   imgMed.src = episode.image.medium; //renders medium img
 
+  //Summary
   let epSummary = document.createElement("p");
   epDiv.appendChild(epSummary);
   epSummary.innerText = episode.summary.replace(/<([^>]+>)/g, ""); //removes all tags in summary string, then renders as p
 
- 
-
-
-  // console.log(`I'm ep${episode.number}`); //renders 'hi' x7
 });
