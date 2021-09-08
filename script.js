@@ -86,7 +86,19 @@ getAllEpisodes().forEach((episode) => {
 
   //Summary
   let epSummary = document.createElement("p");
-  epDiv.appendChild(epSummary);
-  epSummary.innerText = episode.summary.replace(/<([^>]+>)/g, ""); //removes all tags in summary string, then renders as p
+  epDiv.appendChild(epSummary)
+  epSummary.innerHTML = episode.summary; //innerHTML removes all tags in summary string
 
+  //Episode Link 
+  let epLink = document.createElement("a");
+  epDiv.appendChild(epLink);
+  epLink.innerHTML = `<a href= ${episode.url} target="_blank" rel="noopener noreferrer">Original episode info</a>`;
+
+  
 });
+
+//Link to TV Maze
+ let tvMazeLink = document.createElement("p");
+ document.body.appendChild(tvMazeLink);
+ tvMazeLink.innerHTML =
+   'All data from <a href="https://tvmaze.com/" target="_blank" rel="noopener noreferrer">TVMaze.com</a>';
