@@ -1853,3 +1853,9 @@ function getAllEpisodes() {
     },
   ];
 }
+
+// console.log(getAllEpisodes().length); // logs 73
+
+// console.log(getAllEpisodes()); // logs array of ep objs
+
+// getAllEpisodes().forEach((episode) => console.log(episode)); //logs each obj separetly
