@@ -90,65 +90,41 @@ function search_ep() {
   let input2 = document.getElementById("searchbar2").value;
 
   input2 = input2.toLowerCase();
-  let epH2 = document.getElementsByTagName("h2");
+  let epH2 = document.querySelectorAll("h2");
   let summaryPara = document.getElementsByTagName("p");
-  let divEl = document.getElementsByClassName("episode");
-
-  //-------SHOWS ONLY DIVS THAT MATCH H2
-  //     for (i = 0; i < epH2.length; i++) {
-  //     if (
-  //       !epH2[i].innerHTML.toLowerCase().includes(input2)
-  //     //   || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
-  //     ) {
-  //       divEl[i].style.display = "none";
-  //       //  summaryPara[i].style.display="none"  ;
-  //     } else {
-  //       divEl[i].style.display = "initial";
-  //     }
-  //   }
-  // }
+  let divEl = document.querySelectorAll(".episode");
+  //-----LIVE SEARCH FOR EP NAMES(H2)
+    epH2.forEach((episode, index) => {
+      if (
+        !episode.innerHTML.toLowerCase().includes(input2)
+        // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+      ) {
+        divEl[index].style.display = "none";
+        //  summaryPara[i].style.display="none"  ;
+      } else {
+        divEl[index].style.display = "initial";
+      }
+    });
+  }
   //------------
 
   //TEST FOR BOTH
-  // try displaying relevant divs for h2 search - Done
-  // still only divs for both h2
+  //try displaying relevant divs for h2 search
 
-  //   for (i = 0; i < epH2.length; i++) {
-  //     if (
-  //       !epH2[i].innerHTML.toLowerCase().includes(input2)
-  //       || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
-  //     ) {
-  //       divEl[i].style.display = "none";
-  //       //  summaryPara[i].style.display="none"  ;
-  //     } else {
-  //       divEl[i].style.display = "initial";
-  //     }
-  //   }
-  // }
+//   for (i = 0; i < epH2.length; i++) {
+//     if (
+//       !epH2[i].innerHTML.toLowerCase().includes(input2)
+//       // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+//     ) {
+//       divEl[i].style.display = "none";
+//       //  summaryPara[i].style.display="none"  ;
+//     } else {
+//       divEl[i].style.display = "initial";
+//     }
+//   }
+// }
 
-  //----- LIVE SEARCH SUMMARY PARA
-   //shows eps matching para with input2 - done
-   //non-matching eps still show, with paras removed
-  for (i = 0; i < summaryPara.length; i++) {
-
-    if (
-      // !epH2[i].innerHTML.toLowerCase().includes(input2) ||
-      !summaryPara[i].innerHTML.toLowerCase().includes(input2)
-    ) {
-      summaryPara[i].style.display = "none";
-      //  summaryPara[i].style.display="none"  ;
-
-    } else {
-      summaryPara[i].style.display = "initial";
- // console.log(summaryPara[i]);
-
-    }
- 
-}
-}
 //--------------------------------------------------
 //test for epName length
-// console.log(epName.length); //logs undefined
-// console.log(getAllEpisodes().length); //logs 73
-
-
+console.log(epName.length); //logs undefined
+console.log(getAllEpisodes().length); //logs 73
