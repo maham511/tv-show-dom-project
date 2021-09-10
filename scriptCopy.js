@@ -110,3 +110,5 @@ function search_ep() {
 //test for epName length
 console.log(epName.length); //logs undefined
 console.log(getAllEpisodes().length); //logs 73
+
+
