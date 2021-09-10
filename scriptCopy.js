@@ -92,41 +92,63 @@ function search_ep() {
   input2 = input2.toLowerCase();
   let epH2 = document.getElementsByTagName("h2");
   let summaryPara = document.getElementsByTagName("p");
-  let divEl = document.getElementsByClassName('episode');
-//----------works for h2 live search
-  //   for (i = 0; i < epH2.length; i++) {
+  let divEl = document.getElementsByClassName("episode");
+
+  //-------SHOWS ONLY DIVS THAT MATCH H2
+  //     for (i = 0; i < epH2.length; i++) {
   //     if (
   //       !epH2[i].innerHTML.toLowerCase().includes(input2)
-  //       // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+  //     //   || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
   //     ) {
-  //       epH2[i].style.display = "none";
+  //       divEl[i].style.display = "none";
   //       //  summaryPara[i].style.display="none"  ;
   //     } else {
-  //       epH2[i].style.display = "initial";
+  //       divEl[i].style.display = "initial";
   //     }
   //   }
   // }
-//------------
+  //------------
 
-//TEST FOR BOTH
-//try displaying relevant divs for h2 search
+  //TEST FOR BOTH
+  // try displaying relevant divs for h2 search - Done
+  // still only divs for both h2
 
-  for (i = 0; i < epH2.length; i++) {
+  //   for (i = 0; i < epH2.length; i++) {
+  //     if (
+  //       !epH2[i].innerHTML.toLowerCase().includes(input2)
+  //       || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+  //     ) {
+  //       divEl[i].style.display = "none";
+  //       //  summaryPara[i].style.display="none"  ;
+  //     } else {
+  //       divEl[i].style.display = "initial";
+  //     }
+  //   }
+  // }
+
+  //----- LIVE SEARCH SUMMARY PARA
+   //shows eps matching para with input2 - done
+   //non-matching eps still show, with paras removed
+  for (i = 0; i < summaryPara.length; i++) {
+
     if (
-      !epH2[i].innerHTML.toLowerCase().includes(input2)
-      // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+      // !epH2[i].innerHTML.toLowerCase().includes(input2) ||
+      !summaryPara[i].innerHTML.toLowerCase().includes(input2)
     ) {
-      divEl[i].style.display = "none";
+      summaryPara[i].style.display = "none";
       //  summaryPara[i].style.display="none"  ;
-    } else {
-      divEl[i].style.display = "initial";
-    }
-  }
-}
 
+    } else {
+      summaryPara[i].style.display = "initial";
+ // console.log(summaryPara[i]);
+
+    }
+ 
+}
+}
 //--------------------------------------------------
 //test for epName length
-console.log(epName.length); //logs undefined
-console.log(getAllEpisodes().length); //logs 73
+// console.log(epName.length); //logs undefined
+// console.log(getAllEpisodes().length); //logs 73
 
 
