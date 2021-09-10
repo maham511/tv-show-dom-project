@@ -92,16 +92,34 @@ function search_ep() {
   input2 = input2.toLowerCase();
   let epH2 = document.getElementsByTagName("h2");
   let summaryPara = document.getElementsByTagName("p");
+  let divEl = document.getElementsByClassName('episode');
+//----------works for h2 live search
+  //   for (i = 0; i < epH2.length; i++) {
+  //     if (
+  //       !epH2[i].innerHTML.toLowerCase().includes(input2)
+  //       // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
+  //     ) {
+  //       epH2[i].style.display = "none";
+  //       //  summaryPara[i].style.display="none"  ;
+  //     } else {
+  //       epH2[i].style.display = "initial";
+  //     }
+  //   }
+  // }
+//------------
+
+//TEST FOR BOTH
+//try displaying relevant divs for h2 search
 
   for (i = 0; i < epH2.length; i++) {
     if (
       !epH2[i].innerHTML.toLowerCase().includes(input2)
       // || !summaryPara[i].innerHTML.toLowerCase().includes(input2)
     ) {
-      epH2[i].style.display = "none";
+      divEl[i].style.display = "none";
       //  summaryPara[i].style.display="none"  ;
     } else {
-      epH2[i].style.display = "initial";
+      divEl[i].style.display = "initial";
     }
   }
 }
