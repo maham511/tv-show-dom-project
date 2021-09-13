@@ -10,15 +10,18 @@
 
   <body>
     <input
-      id="searchbar2"
-      onkeyup="search_ep()"
+      id="searchbar"
       type="text"
       name="search"
       placeholder="Search ep.."
     />
 
-    <div id="root"></div>
-    <!-- <p id='matchEps'>hiiiiiiiiii</p> -->
+    <p id="display-number"></p>
+   
+    <div id="root">
+    </div>
+
+    <p>All data from <a href="https://tvmaze.com/" target="_blank" rel="noopener noreferrer">TVMaze.com</a></p>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>

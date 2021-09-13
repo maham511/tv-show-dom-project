@@ -55,11 +55,6 @@ getAllEpisodes().forEach((episode) => {
   epLink.innerHTML = `<a href= ${episode.url} target="_blank" rel="noopener noreferrer">Original episode info</a>`;
 });
 
-//Link to TV Maze
-let tvMazeLink = document.createElement("p");
-document.body.appendChild(tvMazeLink);
-tvMazeLink.innerHTML =
-  'All data from <a href="https://tvmaze.com/" target="_blank" rel="noopener noreferrer">TVMaze.com</a>';
 
 //Level 200
 //Add search
@@ -70,11 +65,6 @@ tvMazeLink.innerHTML =
 //4. Display how many episodes match search. eg. displaying 12/73 episodes
 //5. If search empty, show all eps
 
-//found example on w3s,uses ul, li and for loop
-//I'm using div, h2, img, p, a, elements
-//Need to update summary(<p>) & name(<h2>) elements
-//h2, p elems already stored in js
-//create vars for input, filter, i, txtValue
 
 //do search for just h2 elem 1st
 //get all h2 elems stored in var(already stored in epName??)
@@ -125,6 +115,4 @@ function search_ep() {
 // }
 
 //--------------------------------------------------
-//test for epName length
-console.log(epName.length); //logs undefined
-console.log(getAllEpisodes().length); //logs 73
+
