@@ -81,7 +81,7 @@ function searchFilter(event) {
    makePageForEpisodes(filteredEpisodes);
 
    //eg displaying 10/73 episodes
-   displayNumber.innerText = `Displaying ${filteredEpisodes.length}/${allEpisodes.length} episodes`;
+   displayNumber.innerText = `Showing ${filteredEpisodes.length}/${allEpisodes.length} episodes`;
 };
 
 
@@ -89,6 +89,7 @@ function searchFilter(event) {
 
 //Selectmenu stored
 let selectMenu = document.getElementById("select-episode");
+let defaultOption = document.getElementById("defaultOption");
 
 //add all eps to drop down options
 allEpisodes.forEach(episode => {
@@ -102,9 +103,8 @@ allEpisodes.forEach(episode => {
     .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
     episode.name
   }`;
-  console.log(option.value); //logs each episode's innerText value
+//  console.log(option.value); //logs each episode's innerText value
 });
-console.log(selectMenu.value);//not logging
 
 
 //test P elem
@@ -128,21 +128,20 @@ function showSelectedEpisode(event){
     //can also use return selectMenu.value.includes(episode.name);
     return event.target.value.includes(episode.name);
   });
-  console.log(event.target.value); //logs selected ep's option value!
-  pEl.innerText = event.target.value; //changes to eps option value when selected
-  makePageForEpisodes(selectedEpisode);
+  // console.log(event.target.value); //logs selected ep's option value!
+  // pEl.innerText = event.target.value; //changes to eps option value when selected
+
+ makePageForEpisodes(selectedEpisode); //shows right ep
+
+  //reset condition for 'choose episode'
+  // if (2 <5){
+  //   console.log('ye'); //logs ye
+  // }
+
+  if (selectMenu.value === 'All episodes') {
+    // console.log("ye"); //logs ye
+    makePageForEpisodes(allEpisodes);
+  }
 };
-
-//Create filter for correct episosde
-
-
-
-
-
-    
-    // makePageForEpisodes(selectedEpisode);
-//  };
-// showSelectedEpisode();
-
 
 window.onload = setup;
