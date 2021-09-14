@@ -63,12 +63,11 @@ function makePageForEpisodes(episodeList) {
 
 
   let searchBar = document.getElementById("searchbar");
+  let displayNumber = document.getElementById("display-number"); //p elem 
 
 searchBar.addEventListener("input", searchFilter);
 
 function searchFilter(event) {
-  // event.preventDefault();
-  let displayNumber = document.getElementById("display-number"); //p elem 
   let userSearch = event.target.value.toLowerCase();
    let filteredEpisodes = allEpisodes.filter((episode) => {
      return (
@@ -84,12 +83,11 @@ function searchFilter(event) {
    displayNumber.innerText = `Showing ${filteredEpisodes.length}/${allEpisodes.length} episodes`;
 };
 
-
+//-------------------------------------
 //LEVEL 300
 
 //Selectmenu stored
 let selectMenu = document.getElementById("select-episode");
-let defaultOption = document.getElementById("defaultOption");
 
 //add all eps to drop down options
 allEpisodes.forEach(episode => {
@@ -106,10 +104,6 @@ allEpisodes.forEach(episode => {
 //  console.log(option.value); //logs each episode's innerText value
 });
 
-
-//test P elem
-let pEl = document.querySelector('#testP');
-
 //only show selected episode
 //Add eventlistenter for select elem
 //use 'change'
@@ -118,29 +112,22 @@ selectMenu.addEventListener('change', showSelectedEpisode);
 
 
 function showSelectedEpisode(event){
-  //  makePageForEpisodes(selectedEpisode);
-  // pEl.innerText = "hiii"; //changes to this when any option selected
-  // if (event.target.value !== 'yo') {
-  //   console.log('yes'); //logs yes
-  // }
+ 
   //Filter condition for selectMenu
   let selectedEpisode = allEpisodes.filter((episode) => {
     //can also use return selectMenu.value.includes(episode.name);
     return event.target.value.includes(episode.name);
   });
-  // console.log(event.target.value); //logs selected ep's option value!
-  // pEl.innerText = event.target.value; //changes to eps option value when selected
+ 
+  //shows selected episode
+  makePageForEpisodes(selectedEpisode);
+  //clears displayNumber text when user selects any option
+  displayNumber.innerText = "";
 
- makePageForEpisodes(selectedEpisode); //shows right ep
-
-  //reset condition for 'choose episode'
-  // if (2 <5){
-  //   console.log('ye'); //logs ye
-  // }
-
-  if (selectMenu.value === 'All episodes') {
+  if (selectMenu.value === "All episodes") {
     // console.log("ye"); //logs ye
     makePageForEpisodes(allEpisodes);
+    // displayNumber.innerText = "";
   }
 };
 

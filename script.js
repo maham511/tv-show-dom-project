@@ -61,12 +61,11 @@ function makePageForEpisodes(episodeList) {
 //5. If search empty, show all eps
 
 let searchBar = document.getElementById("searchbar");
+let displayNumber = document.getElementById("display-number"); //p elem
 
 searchBar.addEventListener("input", searchFilter);
 
 function searchFilter(event) {
-  // event.preventDefault();
-  let displayNumber = document.getElementById("display-number"); //p elem
   let userSearch = event.target.value.toLowerCase();
   let filteredEpisodes = allEpisodes.filter((episode) => {
     return (
@@ -79,7 +78,53 @@ function searchFilter(event) {
   makePageForEpisodes(filteredEpisodes);
 
   //eg displaying 10/73 episodes
-  displayNumber.innerText = `Displaying ${filteredEpisodes.length}/${allEpisodes.length} episodes`;
+  displayNumber.innerText = `Showing ${filteredEpisodes.length}/${allEpisodes.length} episodes`;
+}
+
+//-------------------------------------
+//LEVEL 300
+
+//Selectmenu stored
+let selectMenu = document.getElementById("select-episode");
+
+//add all eps to drop down options
+allEpisodes.forEach((episode) => {
+  let option = document.createElement("option");
+  selectMenu.appendChild(option);
+  // option.value = `S${episode.season
+  //     .toString()
+  //     .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")}`;
+  option.innerText = `S${episode.season
+    .toString()
+    .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
+    episode.name
+  }`;
+  //  console.log(option.value); //logs each episode's innerText value
+});
+
+//only show selected episode
+//Add eventlistenter for select elem
+//use 'change'
+//test if can update p elem on change
+selectMenu.addEventListener("change", showSelectedEpisode);
+
+function showSelectedEpisode(event) {
+  //Filter condition for selectMenu
+  let selectedEpisode = allEpisodes.filter((episode) => {
+    //can also use return selectMenu.value.includes(episode.name);
+    return event.target.value.includes(episode.name);
+  });
+
+  //shows selected episode
+  makePageForEpisodes(selectedEpisode);
+  //clears displayNumber text when user selects any option
+  displayNumber.innerText = "";
+
+  if (selectMenu.value === "All episodes") {
+    // console.log("ye"); //logs ye
+    makePageForEpisodes(allEpisodes);
+    // displayNumber.innerText = "";
+  }
 }
 
 window.onload = setup;
