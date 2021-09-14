@@ -85,4 +85,64 @@ function searchFilter(event) {
 };
 
 
+//LEVEL 300
+
+//Selectmenu stored
+let selectMenu = document.getElementById("select-episode");
+
+//add all eps to drop down options
+allEpisodes.forEach(episode => {
+  let option = document.createElement('option');
+  selectMenu.appendChild(option);
+  // option.value = `S${episode.season
+  //     .toString()
+  //     .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")}`;
+  option.innerText = `S${episode.season
+    .toString()
+    .padStart(2, "0")}E${episode.number.toString().padStart(2, "0")} - ${
+    episode.name
+  }`;
+  console.log(option.value); //logs each episode's innerText value
+});
+console.log(selectMenu.value);//not logging
+
+
+//test P elem
+let pEl = document.querySelector('#testP');
+
+//only show selected episode
+//Add eventlistenter for select elem
+//use 'change'
+//test if can update p elem on change
+selectMenu.addEventListener('change', showSelectedEpisode);  
+
+
+function showSelectedEpisode(event){
+  //  makePageForEpisodes(selectedEpisode);
+  // pEl.innerText = "hiii"; //changes to this when any option selected
+  // if (event.target.value !== 'yo') {
+  //   console.log('yes'); //logs yes
+  // }
+  //Filter condition for selectMenu
+  let selectedEpisode = allEpisodes.filter((episode) => {
+    //can also use return selectMenu.value.includes(episode.name);
+    return event.target.value.includes(episode.name);
+  });
+  console.log(event.target.value); //logs selected ep's option value!
+  pEl.innerText = event.target.value; //changes to eps option value when selected
+  makePageForEpisodes(selectedEpisode);
+};
+
+//Create filter for correct episosde
+
+
+
+
+
+    
+    // makePageForEpisodes(selectedEpisode);
+//  };
+// showSelectedEpisode();
+
+
 window.onload = setup;
