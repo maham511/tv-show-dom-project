@@ -22,7 +22,7 @@ function makePageForEpisodes(episodeList) {
     rootElem.appendChild(epCard);
 
     //Episode Name, Season & Number
-    let epHeading = document.createElement("h2");
+    let epHeading = document.createElement("h3");
     let epName = episode.name;
     let epSeason = episode.season.toString().padStart(2, "0");
     let epNumber = episode.number.toString().padStart(2, "0");

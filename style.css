@@ -4,6 +4,20 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+  /* display: flex; */
+  margin: 40px;
+}
+
+#display-number{
+  display: inline-block;
+}
+
+main{
+  border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding-top: 30px;
+}
 
 #root {
   display: flex;
@@ -14,21 +28,20 @@ justify-content: space-evenly;}
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
-    border: 4px solid #ffffffc6;
+  width: 320px;
+    border: 4px solid #fff;
     border-radius: 5px;
     margin: 10px 0px 30px 0px;
-       background: linear-gradient(230deg, #e38cbf, #298bb4);
-    background-size: 100% 130%;
-    
+       background: linear-gradient(230deg, #f98573, #298bb4);
+    background-size: 100% 130%;    
 }
 
 .epCard:hover{
-    border: 4px solid #e38cd6;
+    border: 4px solid #f98573;
     /* transition: all 0.5s ease-out; */
 }
 
-h2{
+h3{
   background-color:#ffffff6e;
     width: inherit;
     /* height: 29px; */
