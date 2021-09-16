@@ -9,28 +9,32 @@
   </head>
 
   <body>
-
-    <label for="select-episode">Choose Episode</label>
-    <select id="select-episode" name="episodes-list">
+    <header>
+      <label for="selectMenu">Choose Episode</label>
+      <select id="selectMenu" name="selectMenu">
         <option id="view-all" value="All episodes">All episodes</option>
-    </select>
+      </select>
 
-    <!-- test P elem for select -->
-    <p id='testP'></p>
+      <input
+        id="searchbar"
+        type="text"
+        name="search"
+        placeholder="Search ep.."
+      />
+      <p id="display-number"></p>
+    </header>
 
-
-    <input id="searchbar" type="text" name="search" placeholder="Search ep.." />
-
-    <p id="display-number"></p>
-
+    <main>
     <div id="root"></div>
-
-    <p>
-      All data from
-      <a href="https://tvmaze.com/" target="_blank" rel="noopener noreferrer"
-        >TVMaze.com</a
-      >
-    </p>
+      </main>
+    <footer>
+      <p>
+        All data from
+        <a href="https://tvmaze.com/" target="_blank" rel="noopener noreferrer"
+          >TV Maze</a
+        >
+      </p>
+    </footer>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
