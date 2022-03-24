@@ -1,13 +1,12 @@
 # TV Show DOM Project
 
-A starting point for CYF's TV show DOM project
+## Overview
+For this CodeYourFuture project, the objective was to make a web app using HTML, CSS, and JavaScript which shows details of all of the episodes of a TV show.
 
-The requirements for the project are here:
+The episode data was provided to us as an array of objects. The page of episodes is generated using JavaScript (which will read the properties of each episode object). The [TV Show App](https://cyf-maham511-tv.netlify.app/) is live and deployed on Netlify
 
-https://syllabus.codeyourfuture.io/js-core-3/tv-show-dom-project/readme
-
-## Solution
-
-The solution to this project will be given to you after you have completed it. You will be able to find the solution here
-
-https://github.com/CodeYourFuture/tv-show-dom-project-solution
+## Features I'd like to implement
+- Have the app dynamically fetch the data from the TV Maze API.
+- Add a shows list and search
+- Responsive design
+- Pagination/infinite scrolling
